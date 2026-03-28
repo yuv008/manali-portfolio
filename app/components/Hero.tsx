@@ -91,7 +91,7 @@ export default function Hero() {
           ].join(" ")}
           variants={fadeUpVariants}
         >
-          Dental Surgeon&nbsp;&nbsp;·&nbsp;&nbsp;Epidemiology &amp; Biostatistics&nbsp;&nbsp;·&nbsp;&nbsp;Program Management
+          Epidemiology &amp; Biostatistics&nbsp;&nbsp;·&nbsp;&nbsp;Program Management&nbsp;&nbsp;·&nbsp;&nbsp;Dental Surgeon
         </motion.p>
 
         {/* ── Scroll indicator ─────────────────────────────────────────────── */}
