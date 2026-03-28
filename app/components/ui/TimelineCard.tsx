@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Briefcase } from "lucide-react";
 
 interface TimelineCardProps {
   role: string;
@@ -15,46 +16,48 @@ export default function TimelineCard({
   org,
   date,
   bullets,
-  isLeft = false,
 }: TimelineCardProps) {
   return (
     <motion.div
-      className={[
-        "glass-card rounded-xl p-6",
-        "relative w-full",
-        isLeft ? "text-left" : "text-left",
-      ].join(" ")}
+      className="relative rounded-2xl p-7 border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm overflow-hidden group"
       whileHover={{
-        scale: 1.02,
-        boxShadow:
-          "0 0 24px rgba(201, 168, 76, 0.12), 0 8px 32px rgba(0, 0, 0, 0.3)",
+        borderColor: "rgba(201, 168, 76, 0.2)",
+        y: -2,
       }}
-      transition={{ duration: 0.25, ease: "easeOut" }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
     >
+      {/* Top gold accent line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+      {/* Date badge */}
+      <div className="inline-flex items-center gap-2 bg-gold/10 rounded-full px-3 py-1 mb-4">
+        <Briefcase size={12} className="text-gold/60" />
+        <span className="font-dm-mono text-gold/70 text-xs">{date}</span>
+      </div>
+
       {/* Role */}
-      <h3 className="font-cormorant text-xl font-semibold text-gold leading-tight">
+      <h3 className="font-cormorant text-2xl font-semibold text-cream leading-tight">
         {role}
       </h3>
 
       {/* Organisation */}
-      <p className="mt-1 text-cream/90 text-sm font-dm-sans font-medium">
+      <p className="mt-1.5 text-cream/50 text-sm font-dm-sans">
         {org}
       </p>
 
-      {/* Date */}
-      <p className="mt-1 font-dm-mono text-gold/60 text-sm">{date}</p>
+      {/* Divider */}
+      <div className="h-px bg-white/[0.06] my-5" />
 
       {/* Bullet points */}
       {bullets.length > 0 && (
-        <ul className="mt-4 space-y-2">
+        <ul className="space-y-3">
           {bullets.map((bullet, index) => (
             <li
               key={index}
-              className="flex gap-2 text-cream/70 text-sm font-dm-sans leading-relaxed"
+              className="flex gap-3 text-cream/60 text-sm font-dm-sans leading-relaxed"
             >
-              {/* Decorative gold dot */}
               <span
-                className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-gold/50"
+                className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-gold/50"
                 aria-hidden="true"
               />
               {bullet}

@@ -1,16 +1,17 @@
 "use client";
 
+import { motion } from "framer-motion";
 import ScrollReveal from "./ui/ScrollReveal";
 import TimelineCard from "./ui/TimelineCard";
 
-interface Experience {
+interface ExperienceEntry {
   role: string;
   org: string;
   date: string;
   bullets: string[];
 }
 
-const EXPERIENCES: Experience[] = [
+const EXPERIENCES: ExperienceEntry[] = [
   {
     role: "Graduate Research Assistant",
     org: "Boston University School of Public Health",
@@ -34,8 +35,8 @@ const EXPERIENCES: Experience[] = [
     org: "SPH Governing Council, Boston University",
     date: "Jan 2026 – Present",
     bullets: [
-      "Elected representative for about 1,200 School of Public Health students on the institution's senior governance body",
-      "Liaise between the Dean's Office and Student Senate, synthesizing student feedback and presenting priorities to senior leadership",
+      "Elected representative for about 1,200 School of Public Health students on the institution\u2019s senior governance body",
+      "Liaise between the Dean\u2019s Office and Student Senate, synthesizing student feedback and presenting priorities to senior leadership",
     ],
   },
   {
@@ -60,36 +61,39 @@ const EXPERIENCES: Experience[] = [
 
 export default function Experience() {
   return (
-    <section
-      id="experience"
-      className="bg-navy py-24 md:py-32 px-6 md:px-12"
-    >
+    <section id="experience" className="bg-navy py-24 md:py-32 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        {/* Section label */}
+        {/* Header */}
         <ScrollReveal delay={0}>
           <p className="font-dm-mono text-gold-muted text-sm tracking-[0.3em] uppercase mb-4">
-            CAREER
+            Career
           </p>
         </ScrollReveal>
 
-        {/* Section heading */}
         <ScrollReveal delay={0.05}>
-          <h2 className="font-cormorant text-4xl md:text-6xl font-light text-cream mb-16">
-            Experience
+          <h2 className="font-cormorant text-4xl md:text-6xl lg:text-7xl font-light text-cream mb-6">
+            Professional{" "}
+            <span className="italic text-gold/80">Experience</span>
           </h2>
         </ScrollReveal>
 
-        {/* Timeline container */}
+        <ScrollReveal delay={0.08}>
+          <p className="font-dm-sans text-cream/40 text-lg max-w-xl mb-16">
+            From clinical care in India to epidemiologic research at Boston
+            University — a trajectory shaped by purpose.
+          </p>
+        </ScrollReveal>
+
+        {/* Timeline */}
         <div className="relative">
-          {/* Center vertical line — visible on lg+ only */}
+          {/* Vertical line */}
           <div
-            className="absolute left-1/2 top-0 bottom-0 hidden lg:block w-px bg-gold/20 -translate-x-1/2"
+            className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-gold/30 via-gold/15 to-transparent lg:-translate-x-px"
             aria-hidden="true"
           />
 
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col gap-10">
             {EXPERIENCES.map((exp, index) => {
-              // Odd indices (0-based) sit on the left, even on the right at lg+
               const isLeft = index % 2 === 0;
 
               return (
@@ -98,27 +102,46 @@ export default function Experience() {
                   delay={0.1 + index * 0.08}
                   direction={isLeft ? "left" : "right"}
                 >
-                  {/* Row: on mobile full-width; on lg+ half-width pushed to the correct side */}
                   <div
                     className={[
                       "relative flex",
+                      "pl-12 lg:pl-0",
                       isLeft
-                        ? "lg:justify-start lg:pr-[calc(50%+0.5rem)]"
-                        : "lg:justify-end lg:pl-[calc(50%+0.5rem)]",
+                        ? "lg:justify-start lg:pr-[calc(50%+1.5rem)]"
+                        : "lg:justify-end lg:pl-[calc(50%+1.5rem)]",
                     ].join(" ")}
                   >
-                    {/* Gold node dot on the center line — lg+ only */}
-                    <span
+                    {/* Timeline node — mobile (left-aligned) */}
+                    <motion.span
+                      className="absolute left-4 top-7 lg:hidden -translate-x-1/2 h-3 w-3 rounded-full bg-gold ring-[3px] ring-navy"
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2 + index * 0.08, type: "spring" }}
+                      aria-hidden="true"
+                    />
+
+                    {/* Timeline node — desktop (centered) */}
+                    <motion.span
+                      className="absolute top-7 hidden lg:block left-1/2 -translate-x-1/2 h-3 w-3 rounded-full bg-gold ring-[3px] ring-navy"
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2 + index * 0.08, type: "spring" }}
+                      aria-hidden="true"
+                    />
+
+                    {/* Connector line from dot to card — desktop only */}
+                    <div
                       className={[
-                        "absolute top-6 hidden lg:block",
-                        "h-3 w-3 rounded-full bg-gold ring-4 ring-navy",
-                        "left-1/2 -translate-x-1/2",
+                        "hidden lg:block absolute top-[1.95rem] h-px w-5 bg-gold/20",
+                        isLeft ? "right-[calc(50%-0.5rem)]" : "left-[calc(50%-0.5rem)]",
                       ].join(" ")}
                       aria-hidden="true"
                     />
 
                     {/* Card */}
-                    <div className="w-full lg:max-w-[calc(50%-0.75rem)]">
+                    <div className="w-full lg:max-w-[calc(50%-2rem)]">
                       <TimelineCard
                         role={exp.role}
                         org={exp.org}
