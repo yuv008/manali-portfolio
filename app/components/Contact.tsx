@@ -70,7 +70,7 @@ export default function Contact() {
                   className="glass-card rounded-xl p-6 flex items-center gap-4 hover:border-gold/20 transition-all duration-300 group"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
+                  viewport={{ once: false, margin: "-60px" }}
                   transition={{
                     duration: 0.5,
                     delay: 0.15 + index * 0.08,

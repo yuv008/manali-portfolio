@@ -21,25 +21,24 @@ export default function AnimatedCounter({
   duration = 2,
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: false, margin: "-50px" });
 
-  // Raw motion value that tracks the numeric progress
   const motionValue = useMotionValue(0);
 
-  // Transform the raw number to a rounded integer string for display
   const displayValue = useTransform(motionValue, (latest) =>
     Math.round(latest).toString()
   );
 
   useEffect(() => {
-    if (!isInView) return;
-
-    const controls = animate(motionValue, target, {
-      duration,
-      ease: "easeOut",
-    });
-
-    return () => controls.stop();
+    if (isInView) {
+      const controls = animate(motionValue, target, {
+        duration,
+        ease: "easeOut",
+      });
+      return () => controls.stop();
+    } else {
+      motionValue.set(0);
+    }
   }, [isInView, motionValue, target, duration]);
 
   return (

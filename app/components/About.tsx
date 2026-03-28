@@ -74,7 +74,7 @@ export default function About() {
                 className="absolute -bottom-6 -right-4 md:right-4 bg-navy text-cream rounded-xl px-5 py-4 shadow-2xl"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ delay: 0.5, duration: 0.6 }}
               >
                 <p className="font-dm-mono text-gold text-xs uppercase tracking-wider mb-1">
@@ -123,7 +123,7 @@ export default function About() {
 
               {/* Key highlights inline */}
               <div className="flex flex-wrap gap-3 pt-2">
-                {["R & SAS", "Epidemiology", "Biostatistics", "Clinical Research", "Program Evaluation"].map(
+                {["R & SAS", "Epidemiology", "Biostatistics", "Clinical Research", "Program Management"].map(
                   (tag) => (
                     <span
                       key={tag}
@@ -148,7 +148,7 @@ export default function About() {
                   className="flex flex-col gap-3 text-center"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ delay: 0.4 + i * 0.1, duration: 0.5 }}
                 >
                   <AnimatedCounter

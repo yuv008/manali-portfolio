@@ -21,8 +21,9 @@ const EDUCATION: EducationEntry[] = [
     date: "Anticipated May 2027",
     highlights: [
       "Merit Scholarship Recipient",
-      "Student Senate — International Student Cohort Representative",
+      "SPH Governing Council — Student Representative",
       "International Students Organization — Internal Vice President",
+      "Global Health Student Organization — Treasurer",
     ],
   },
   {

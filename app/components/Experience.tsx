@@ -116,7 +116,7 @@ export default function Experience() {
                       className="absolute left-4 top-7 lg:hidden -translate-x-1/2 h-3 w-3 rounded-full bg-gold ring-[3px] ring-navy"
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
+                      viewport={{ once: false }}
                       transition={{ delay: 0.2 + index * 0.08, type: "spring" }}
                       aria-hidden="true"
                     />
@@ -126,7 +126,7 @@ export default function Experience() {
                       className="absolute top-7 hidden lg:block left-1/2 -translate-x-1/2 h-3 w-3 rounded-full bg-gold ring-[3px] ring-navy"
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
+                      viewport={{ once: false }}
                       transition={{ delay: 0.2 + index * 0.08, type: "spring" }}
                       aria-hidden="true"
                     />
