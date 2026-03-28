@@ -103,8 +103,8 @@ export default function Experience() {
                     className={[
                       "relative flex",
                       isLeft
-                        ? "lg:justify-start lg:pr-[calc(50%+2rem)]"
-                        : "lg:justify-end lg:pl-[calc(50%+2rem)]",
+                        ? "lg:justify-start lg:pr-[calc(50%+0.5rem)]"
+                        : "lg:justify-end lg:pl-[calc(50%+0.5rem)]",
                     ].join(" ")}
                   >
                     {/* Gold node dot on the center line — lg+ only */}
@@ -118,7 +118,7 @@ export default function Experience() {
                     />
 
                     {/* Card */}
-                    <div className="w-full lg:max-w-[calc(50%-3rem)]">
+                    <div className="w-full lg:max-w-[calc(50%-0.75rem)]">
                       <TimelineCard
                         role={exp.role}
                         org={exp.org}

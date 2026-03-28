@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import ScrollReveal from "./ui/ScrollReveal";
 import AnimatedCounter from "./ui/AnimatedCounter";
 
@@ -10,7 +11,7 @@ const stats: {
 }[] = [
   { target: 1000, suffix: "+", label: "Patients Treated" },
   { target: 500, suffix: "+", label: "Community Members Reached" },
-  { target: 2, suffix: "", label: "Peer-Reviewed Publications" },
+  { target: 1, suffix: "", label: "Peer-Reviewed Publication" },
   { target: 5, suffix: "+", label: "Research Projects" },
 ];
 
@@ -35,10 +36,28 @@ export default function About() {
           </h2>
         </ScrollReveal>
 
-        {/* Two-column body */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Left — editorial bio */}
-          <ScrollReveal delay={0.2} direction="left">
+        {/* Portrait + Bio + Stats */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          {/* Portrait */}
+          <ScrollReveal delay={0.2} direction="left" className="lg:col-span-4">
+            <div className="relative">
+              <div className="relative overflow-hidden rounded-2xl border-2 border-gold/20">
+                <Image
+                  src="/manali-portrait.jpeg"
+                  alt="Manali Sanghai"
+                  width={500}
+                  height={625}
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+              </div>
+              {/* Gold accent corner */}
+              <div className="absolute -bottom-3 -right-3 w-24 h-24 border-b-2 border-r-2 border-gold/30 rounded-br-2xl" />
+            </div>
+          </ScrollReveal>
+
+          {/* Bio text */}
+          <ScrollReveal delay={0.25} className="lg:col-span-4">
             <div className="space-y-6 font-dm-sans text-navy/80 text-lg leading-relaxed">
               <p>
                 My path into public health began at the chairside. After earning
@@ -62,10 +81,10 @@ export default function About() {
             </div>
           </ScrollReveal>
 
-          {/* Right — stats card */}
-          <ScrollReveal delay={0.3} direction="right">
-            <div className="bg-navy rounded-2xl p-8 md:p-10">
-              <div className="grid grid-cols-2 gap-8">
+          {/* Stats card */}
+          <ScrollReveal delay={0.3} direction="right" className="lg:col-span-4">
+            <div className="bg-navy rounded-2xl p-8 md:p-10 h-full flex items-center">
+              <div className="grid grid-cols-2 gap-8 w-full">
                 {stats.map((stat) => (
                   <div key={stat.label} className="flex flex-col gap-2">
                     <AnimatedCounter

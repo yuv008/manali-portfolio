@@ -91,7 +91,7 @@ export default function Hero() {
           ].join(" ")}
           variants={fadeUpVariants}
         >
-          MPH Candidate&nbsp;&nbsp;·&nbsp;&nbsp;Epidemiologist&nbsp;&nbsp;·&nbsp;&nbsp;Doctor of Dental Surgery
+          Dental Surgeon&nbsp;&nbsp;·&nbsp;&nbsp;Epidemiology &amp; Biostatistics&nbsp;&nbsp;·&nbsp;&nbsp;Program Management
         </motion.p>
 
         {/* ── Scroll indicator ─────────────────────────────────────────────── */}

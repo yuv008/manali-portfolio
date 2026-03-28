@@ -7,12 +7,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: "#0B1120",
+        navy: "#0A0A0A",
         cream: "#F5F0E8",
         gold: "#C9A84C",
         "gold-muted": "#8A6E32",
-        "navy-light": "#131B2E",
-        "navy-lighter": "#1A2340",
+        "navy-light": "#141414",
+        "navy-lighter": "#1C1C1C",
       },
       fontFamily: {
         cormorant: ["var(--font-cormorant)", "serif"],

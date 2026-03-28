@@ -44,7 +44,7 @@ function EducationCard({ entry }: { entry: EducationEntry }) {
   return (
     <div
       className="border border-gold/20 rounded-2xl p-8 h-full"
-      style={{ backgroundColor: "#131B2E" }}
+      style={{ backgroundColor: "#141414" }}
     >
       {/* Icon */}
       <GraduationCap size={32} className="text-gold" />
