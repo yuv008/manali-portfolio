@@ -21,7 +21,7 @@ export default function AnimatedCounter({
   duration = 2,
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: false, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const motionValue = useMotionValue(0);
 
@@ -42,7 +42,7 @@ export default function AnimatedCounter({
   }, [isInView, motionValue, target, duration]);
 
   return (
-    <span ref={ref} className="font-cormorant text-5xl font-bold text-gold">
+    <span ref={ref} className="font-cormorant text-5xl font-bold text-rose-deep">
       <motion.span>{displayValue}</motion.span>
       {suffix && <span>{suffix}</span>}
     </span>

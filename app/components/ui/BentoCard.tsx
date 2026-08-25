@@ -32,8 +32,8 @@ export default function BentoCard({
   return (
     <motion.div
       className={[
-        "glass-card rounded-2xl relative overflow-hidden",
-        featured ? "p-8 border border-gold/30" : "p-6",
+        "soft-card rounded-2xl relative overflow-hidden",
+        featured ? "p-8 border-rose/30" : "p-6",
         "flex flex-col gap-4",
         className,
       ]
@@ -42,15 +42,15 @@ export default function BentoCard({
       whileHover={{
         scale: 1.02,
         boxShadow: featured
-          ? "0 0 32px rgba(201, 168, 76, 0.22), 0 12px 48px rgba(0, 0, 0, 0.4)"
-          : "0 0 20px rgba(201, 168, 76, 0.12), 0 8px 32px rgba(0, 0, 0, 0.3)",
+          ? "0 0 32px rgba(201, 139, 139, 0.18), 0 12px 48px rgba(61, 50, 56, 0.10)"
+          : "0 0 20px rgba(201, 139, 139, 0.10), 0 8px 32px rgba(61, 50, 56, 0.08)",
       }}
       transition={{ duration: 0.25, ease: "easeOut" }}
     >
       {/* Featured accent bar */}
       {featured && (
         <span
-          className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent"
+          className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-rose/60 to-transparent"
           aria-hidden="true"
         />
       )}
@@ -59,7 +59,7 @@ export default function BentoCard({
       <CardWrapper {...wrapperProps} className="group flex items-start gap-2">
         <h3
           className={[
-            "font-cormorant font-semibold text-cream leading-tight flex-1",
+            "font-cormorant font-semibold text-plum leading-tight flex-1",
             featured ? "text-2xl" : "text-xl",
           ].join(" ")}
         >
@@ -69,14 +69,14 @@ export default function BentoCard({
         {link && (
           <ExternalLink
             size={16}
-            className="mt-1 shrink-0 text-gold/50 transition-colors duration-200 group-hover:text-gold"
+            className="mt-1 shrink-0 text-rose-deep/50 transition-colors duration-200 group-hover:text-rose-deep"
             aria-label={`Open ${title} in new tab`}
           />
         )}
       </CardWrapper>
 
       {/* Description */}
-      <p className="text-cream/70 text-sm font-dm-sans leading-relaxed flex-1">
+      <p className="text-plum-muted text-sm font-dm-sans leading-relaxed flex-1">
         {description}
       </p>
 
@@ -86,7 +86,7 @@ export default function BentoCard({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="inline-block px-3 py-0.5 rounded-full font-dm-mono text-xs border border-gold/20 text-gold/70 bg-gold/5"
+              className="inline-block px-3 py-0.5 rounded-full font-dm-mono text-xs border border-rose/25 text-rose-deep bg-rose/5"
             >
               {tag}
             </span>

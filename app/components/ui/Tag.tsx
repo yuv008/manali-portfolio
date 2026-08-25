@@ -12,7 +12,7 @@ export default function Tag({ children, className = "" }: TagProps) {
     <motion.span
       className={[
         "inline-block px-4 py-1.5 rounded-full text-sm",
-        "font-dm-mono border border-gold/20 text-cream/80 bg-gold/5",
+        "font-dm-mono border border-rose/25 text-plum-muted bg-rose/5",
         "cursor-default select-none",
         className,
       ]
@@ -20,9 +20,9 @@ export default function Tag({ children, className = "" }: TagProps) {
         .join(" ")}
       whileHover={{
         boxShadow:
-          "0 0 12px rgba(201, 168, 76, 0.35), 0 0 24px rgba(201, 168, 76, 0.15)",
-        borderColor: "rgba(201, 168, 76, 0.5)",
-        color: "rgba(245, 240, 232, 1)",
+          "0 0 12px rgba(201, 139, 139, 0.25), 0 0 24px rgba(201, 139, 139, 0.12)",
+        borderColor: "rgba(168, 95, 95, 0.5)",
+        color: "rgba(61, 50, 56, 1)",
       }}
       transition={{ duration: 0.2, ease: "easeOut" }}
     >
